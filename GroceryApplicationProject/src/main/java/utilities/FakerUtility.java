@@ -25,4 +25,8 @@ public class FakerUtility {
 	{
 		return faker.phoneNumber().phoneNumber();
 	}
+	public String createRandomContent()
+	{
+		return faker.lorem().paragraph(1);
+	}
 }

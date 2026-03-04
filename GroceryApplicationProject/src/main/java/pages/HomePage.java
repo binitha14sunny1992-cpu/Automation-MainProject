@@ -4,9 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
+import utilities.WaitUtility;
 public class HomePage {
 	public WebDriver driver;
+	WaitUtility wait = new WaitUtility();
 	public HomePage(WebDriver driver) //constructor creation
 	{
 		this.driver=driver;
@@ -17,22 +18,34 @@ public class HomePage {
 	@FindBy(xpath="//a[contains(@href, 'logout') and @class = 'dropdown-item']")WebElement logoubtn;
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin' and @class='small-box-footer']")WebElement adminuser;
 	@FindBy(xpath=" //a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='small-box-footer']")WebElement managenews;
-	public void adminClick()
+	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/home' and text()='Home']")WebElement homebtn;
+	public HomePage clickOnHomeButtonOnHomePage()
 	{
+		wait.waitUntilElementToBeClickable(driver, homebtn);
+		homebtn.click();
+		return this;
+	}	
+	public LoginPage clickOnLogoutButton()
+	{
+		wait.waitUntilElementToBeClickable(driver,adminbtn);
 		adminbtn.click();
-		
+		wait.waitUntilElementToBeClickable(driver,logoubtn);
+	    logoubtn.click();
+	    return new LoginPage(driver) ;
 	}
-	public void logoutClick()
+	public boolean isRedirectToLoginPage()
 	{
-		logoubtn.click();
+		return driver.getCurrentUrl().contains("login");
 	}
-	public void clickOnAdminUserMoreInfo()
+	public AdminUserPage clickOnAdminUserMoreInfo()
 	{
-		adminuser.click();
+	    adminuser.click();
+	    return new AdminUserPage(driver);
 	}
-	public void clickOnmanageNewsMoreInfo()
+	public ManageNewsPage clickOnmanageNewsMoreInfo()
 	{
-		managenews.click();
+	    managenews.click();
+	    return new ManageNewsPage(driver);
 	}
 
 }

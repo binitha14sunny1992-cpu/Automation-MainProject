@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.GroceryBase;
+import constant.Constants;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
@@ -21,7 +22,7 @@ public class LoginTest extends GroceryBase{
 		login.enterPasswordOnPasswordField(passwordvalue);
 		login.clickOnSignInButton();
 		boolean dashboardDisplay=login.isDashBoardDisplayed();		
-		Assert.assertTrue(dashboardDisplay, "User was unable to login with valid credentials");
+		Assert.assertTrue(dashboardDisplay, Constants.VALIDCREDENTIALERROR);
 	}	
 	
 	
@@ -35,8 +36,8 @@ public class LoginTest extends GroceryBase{
 		login.enterPasswordOnPasswordField(passwordvalue);
 		login.clickOnSignInButton();
 		String expected="7rmart supermarket";
-		String actual=login.getLoginText();
-		Assert.assertEquals(actual, expected,"User was able to login in invalid credentials");
+		String actual=login.getLoginPageHeader();
+		Assert.assertEquals(actual, expected,Constants.INVALIDPASSWORDERROR);
 		
 	}
 	
@@ -50,8 +51,8 @@ public class LoginTest extends GroceryBase{
 		login.enterPasswordOnPasswordField(passwordvalue);
 		login.clickOnSignInButton();
 		String expected="7rmart supermarket";
-		String actual=login.getLoginText();
-		Assert.assertEquals(actual, expected,"User was able to login in invalid credentials");
+		String actual=login.getLoginPageHeader();
+		Assert.assertEquals(actual, expected,Constants.INVALIDUSERNAMEERROR);
 		
 	}
 	
@@ -65,7 +66,7 @@ public class LoginTest extends GroceryBase{
 		login.enterPasswordOnPasswordField(passwordvalue);
 		login.clickOnSignInButton();
 		boolean dashboardDisplay=login.isDashBoardDisplayed();	
-		Assert.assertFalse(dashboardDisplay, "User was able to login with Invalid credentials");
+		Assert.assertFalse(dashboardDisplay, Constants.INVALIDCREDENTIALERROR);
 	}
 
 	

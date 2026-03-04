@@ -5,9 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WaitUtility;
+
 public class LoginPage {
 	
 	public WebDriver driver;
+	WaitUtility wait=new WaitUtility();
 	public LoginPage(WebDriver driver) //constructor creation
 	{
 		this.driver=driver;
@@ -20,23 +23,37 @@ public class LoginPage {
 	@FindBy(xpath="//p[text()='Dashboard']")WebElement dashboardTile;
 	@FindBy(xpath="//b[text()='7rmart supermarket']")WebElement loginText;
 	
-	public void enterUserNameOnUserNameField(String usernamevalue)
+	public LoginPage enterUserNameOnUserNameField(String usernamevalue)
 	{
-		username.sendKeys(usernamevalue);
+		wait.waitUntilVisibilityOfAllElements(driver, username);
+	    username.sendKeys(usernamevalue);
+	    return this;
 	}
-	public void enterPasswordOnPasswordField(String passwordvalue)
+	public LoginPage enterPasswordOnPasswordField(String passwordvalue)
 	{
-		password.sendKeys(passwordvalue);
+		wait.waitUntilVisibilityOfAllElements(driver, password);
+	    password.sendKeys(passwordvalue);
+	    return this;
 	}
-	public void clickOnSignInButton()
+	public HomePage clickOnSignInButton()
 	{
-		signbtn.click();
+		wait.waitUntilElementToBeClickable(driver, signbtn);
+	    signbtn.click();
+	    return new HomePage(driver);
 	}
 	public boolean isDashBoardDisplayed()
 	{
-		return dashboardTile.isDisplayed();
+		try
+		{
+			return dashboardTile.isDisplayed();
+		}
+		catch(Exception e)
+		{
+			return false;
+		}
+		
 	}
-	public String getLoginText()
+	public String getLoginPageHeader()
 	{
 		return loginText.getText();
 	}
