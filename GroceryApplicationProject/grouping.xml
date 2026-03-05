@@ -6,6 +6,7 @@
 <groups><run><include name="smoke"></include></run></groups>
 <classes>
 <class name="testscripts.LoginTest"></class>
+
 </classes>
 </test>
 </suite>
