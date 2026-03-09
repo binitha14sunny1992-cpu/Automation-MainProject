@@ -15,9 +15,9 @@ public class ScreenshotUtility {
 	public void getScreenshot(WebDriver driver, String failedTestCase) throws IOException { 
 		  
  		TakesScreenshot scrShot = (TakesScreenshot) driver; 
- 		File screenShot = scrShot.getScreenshotAs(OutputType.FILE); 
+ 		File screenShot = scrShot.getScreenshotAs(OutputType.FILE); //will store screenshots as file
   
- 		String timeStamp = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss").format(new Date()); 
+ 		String timeStamp = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss").format(new Date()); //to differentiate the screenshots captured
   
  		File f1 = new File(System.getProperty("user.dir") + "//OutputScreenShot");// create file in directory 
  		if (!f1.exists()) { 
@@ -29,7 +29,7 @@ public class ScreenshotUtility {
  		// String destination = f1.getPath() + "//" + failedTestCase + timeStamp + 
  		// ".png"; 
   
- 		File finalDestination = new File(destination); 
+ 		File finalDestination = new File(destination); //attach screenshots to the folder
  		FileHandler.copy(screenShot, finalDestination); 
  	}
 

@@ -25,14 +25,14 @@ public class Listeners extends GroceryBase implements ITestListener{  //ITestLis
   
  	} 
   
- 	public void onTestSuccess(ITestResult result) { //automatically invoke on Pass
+ 	public void onTestSuccess(ITestResult result) { //automatically invoke on when test case is Pass
   
  		ITestListener.super.onTestSuccess(result); 
  		extentTest.get().log(Status.PASS, "Test Passed"); 
   
  	} 
   
- 	public void onTestFailure(ITestResult result) { //automatically invoke on fail
+ 	public void onTestFailure(ITestResult result) { //automatically invoke when test case is on fail
   
  		ITestListener.super.onTestFailure(result); 
  		 
@@ -53,7 +53,7 @@ public class Listeners extends GroceryBase implements ITestListener{  //ITestLis
  		} catch (IllegalAccessException e) { 
   
  			e.printStackTrace(); 
- 		} catch (NoSuchFieldException e) { 
+ 		} catch (NoSuchFieldException e) { //error reason
   
  			e.printStackTrace(); 
  		} catch (SecurityException e) { 
@@ -68,7 +68,7 @@ public class Listeners extends GroceryBase implements ITestListener{  //ITestLis
  		} 
  	} 
   
- 	public void onTestSkipped(ITestResult result) { //automatically invoke on Skip
+ 	public void onTestSkipped(ITestResult result) { //automatically invoke on when test case is Skip
  		 
  		ITestListener.super.onTestSkipped(result); 
  		extentTest.get().log(Status.SKIP, "Test Skipped"); 
@@ -94,7 +94,7 @@ public class Listeners extends GroceryBase implements ITestListener{  //ITestLis
  	public void onFinish(ITestContext context) { 
   
  		ITestListener.super.onFinish(context); 
- 		extent.flush(); //very important method and it will not generate the report correctly if it is not used.
+ 		extent.flush(); //very important method , it will log all the details to the report and it will not generate the report correctly if it is not used.
  	}
 	
 

@@ -65,7 +65,7 @@ public class AdminUserTest extends GroceryBase {
 
 	}
 
-	@Test(description = "Verify that user can refresh the admin user list")
+	@Test(description = "Verify that user can reset the admin user list")
 	public void verifyUserCanRefreshAdminUserList() throws IOException {
 	String userName = ExcelUtility.getStringData(0, 0, "LoginPage");
 	String password = ExcelUtility.getStringData(0, 1, "LoginPage");
