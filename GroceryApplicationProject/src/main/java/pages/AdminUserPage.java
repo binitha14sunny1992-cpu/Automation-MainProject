@@ -94,34 +94,6 @@ public class AdminUserPage {
 		btnsearch.click();
 		return this;
 	}
+}	
 	
 	
-	/*public void newButtonClick()
-	{
-		newbtn.click();
-	}
-	public void addNewUser(String newUsername, String newPassword)
-	{
-		
-		username.sendKeys(newUsername);
-		password.sendKeys(newPassword);
-		Select select =new Select(usertype);
-		select.selectByVisibleText("Staff");
-		savebtn.click();
-		
-	}
-	public void searchUser()
-	{
-		searchbtn.click();
-		usernamesearch.sendKeys("SampleTester11");
-		Select select =new Select(usertypesearch);
-		select.selectByVisibleText("Staff");
-		btnsearch.click();
-
-		
-	}
-	public void resetUser()
-	{
-		resetbtn.click();
-	}*/
-}

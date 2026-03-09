@@ -44,12 +44,12 @@ public class PageUtility {
 		 
 		            element.click();
 		    }
-		    public void keyboardAction() throws AWTException {
+		public void keyboardAction() throws AWTException {
 		        Robot robot = new Robot();
 		        robot.keyPress(KeyEvent.VK_CONTROL);
 		        robot.keyPress(KeyEvent.VK_T);
 		        robot.keyRelease(KeyEvent.VK_T);
 		        robot.keyRelease(KeyEvent.VK_CONTROL);
-		    }
+		}
 
 }

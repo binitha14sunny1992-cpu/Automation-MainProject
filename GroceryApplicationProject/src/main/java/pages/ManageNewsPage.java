@@ -69,23 +69,4 @@ public class ManageNewsPage {
 		return alertMessage.isDisplayed();
 	}
 	
-	
-	/*public void addNewNews()
-	{
-		newbtn.click();
-		news.sendKeys("New grocery Offers Updated 3");		
-		savebtn.click();
-		
-	}
-	public void searchNews()	
-	{
-		searchbtn.click();
-		searchnews.sendKeys("New grocery Offers Updated 3");			
-		btnsearch.click();
-		
-	}
-	public void resetNews()
-	{
-		resetbtn.click();
-	}*/
 }
