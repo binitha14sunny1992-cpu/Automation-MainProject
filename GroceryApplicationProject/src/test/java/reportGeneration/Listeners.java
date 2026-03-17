@@ -64,7 +64,9 @@ public class Listeners extends GroceryBase implements ITestListener{  //ITestLis
  		try { 
  			driver = (WebDriver) result.getTestClass().getRealClass().getDeclaredField("driver") 
  					.get(result.getInstance()); 
- 		} catch (Exception e) { 
+ 		} catch (Exception e) 
+ 		{ 
+ 			e.printStackTrace();	
  		} 
  	} 
   
